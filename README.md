@@ -7,7 +7,7 @@
 
 ### 🌐 Canlı Sunum & Tanıtım Sayfası
 Sesi ve animasyonlu interaktif sunumu doğrudan tarayıcınızda deneyimleyin:  
-👉 **[Canlı Sunumu Başlat](https://<kullanici-adiniz>.github.io/v-giris-sunum/)**
+👉 **[Canlı Sunumu Başlat](https://ahmetemincodes.github.io/v-giris/)**
 
 ---
 

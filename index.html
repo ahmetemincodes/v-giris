@@ -1039,11 +1039,11 @@
     @media (max-width: 880px) {
       .controls-bar {
         height: auto;
-        min-height: 68px;
+        min-height: 64px;
         padding: 0.5rem 0.75rem;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
       .brand-meta {
         display: none;
@@ -1065,7 +1065,169 @@
         display: none;
       }
       .slide {
-        max-height: calc(100vh - 140px);
+        width: calc(100% - 1.5rem);
+        max-height: calc(100dvh - 120px);
+        max-height: calc(100vh - 120px);
+        padding: 1rem 0.5rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .security-badge-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .slide {
+        width: calc(100% - 1.2rem);
+        max-height: calc(100dvh - 115px);
+        max-height: calc(100vh - 115px);
+        padding: 0.75rem 0.4rem;
+      }
+      .slide-title {
+        font-size: 1.55rem;
+        line-height: 1.25;
+        margin-bottom: 0.35rem;
+      }
+      .slide-subtitle {
+        font-size: 0.85rem;
+        line-height: 1.45;
+        margin-bottom: 0.9rem;
+      }
+      .glass-card {
+        padding: 1rem 1.15rem;
+        border-radius: 16px;
+      }
+      .contact-panel {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        gap: 0.85rem !important;
+      }
+      .contact-panel > div:last-child {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 8px !important;
+      }
+      .contact-panel .btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.82rem;
+        word-break: break-all;
+      }
+      .btn-store-prominent {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+      }
+      .voiceover-drawer {
+        bottom: 68px;
+        width: calc(100% - 16px);
+        padding: 0.85rem 1rem;
+        max-height: 48vh;
+        overflow-y: auto;
+      }
+      .voiceover-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide {
+        width: calc(100% - 0.75rem);
+        max-height: calc(100dvh - 110px);
+        max-height: calc(100vh - 110px);
+        padding: 0.5rem 0.25rem;
+      }
+      .slide-title {
+        font-size: 1.35rem;
+      }
+      .slide-subtitle {
+        font-size: 0.8rem;
+      }
+      .badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        margin-bottom: 0.45rem;
+      }
+      .hero-container {
+        padding-top: 0.5rem;
+      }
+      .logo-wrapper {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 1rem;
+      }
+      .app-icon {
+        width: 76px;
+        height: 76px;
+        font-size: 2.7rem;
+        border-radius: 20px;
+      }
+      .hero-tag-item {
+        padding: 5px 12px;
+        font-size: 0.78rem;
+      }
+      .feature-card {
+        padding: 0.85rem 1rem;
+      }
+      .feature-title {
+        font-size: 1.05rem;
+      }
+      .feature-desc {
+        font-size: 0.8rem;
+      }
+      .feature-list li {
+        font-size: 0.8rem;
+      }
+      .stat-counter {
+        padding: 0.75rem 0.4rem;
+      }
+      .stat-number {
+        font-size: 1.65rem;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+      }
+      .step-circle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+        margin-bottom: 0.55rem;
+      }
+      .controls-bar {
+        padding: 0.35rem 0.4rem;
+        min-height: 56px;
+      }
+      .nav-actions {
+        gap: 0.25rem;
+      }
+      .btn {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        border-radius: 8px;
+      }
+      .btn-autoplay {
+        display: none;
+      }
+      .dots-nav .dot {
+        width: 6px;
+        height: 6px;
+      }
+      .dots-nav .dot.active {
+        width: 20px;
+      }
+      .slide-counter {
+        font-size: 0.72rem;
+        margin-left: 4px;
       }
     }
   </style>
@@ -1455,7 +1617,7 @@
           <span class="eq-bar"></span>
         </span>
         <span id="audioBtnText">▶ Seslendirme</span>
-        <span class="audio-time" id="audioTime">0:00 / 3:08</span>
+        <span class="audio-time" id="audioTime">0:00 / 3:13</span>
       </button>
 
       <a href="https://chromewebstore.google.com/detail/v-giri%C5%9F/mjnchicjbpihjeagddlehiacebgblgbo?hl=tr" target="_blank" rel="noopener noreferrer" class="btn btn-store" title="Chrome Web Mağazası'ndan Ücretsiz İndirin">
@@ -1488,12 +1650,12 @@
   <script>
     // Voiceover Narration Texts for AI Speech
     const narrationScripts = {
-      1: "Merhaba. Bugün sizlere, serbest muhasebeci mali müşavirler ve yeminli mali müşavirlerin Gelir İdaresi portallarındaki çalışma gününü kökten değiştiren akıllı Chrome eklentisi V-Giriş'i tanıtacağız. V-Giriş; çoklu mükellef girişinden toplu beyanname indirmeye ve KDV iade listelerinin otomatik çekilmesine kadar tüm rutin süreçleri tek bir merkezde toplar.",
-      2: "Mali müşavirlerin ve YMM raportörlerinin her gün karşılaştığı en büyük sorun; onlarca mükellefin şifrelerini tek tek yazmak, Dijital ve İnternet Vergi Dairesi arasında kaybolmak ve yüzlerce listeyi elle indirmektir. V-Giriş ile tüm hesaplarınız güvende saklanır, tek tıkla giriş yapılır ve 6 beyanname türü ile 4 KDV iade listesi otomatik olarak bilgisayarınıza aktarılır. Üstelik yüzde yüz yerel depolama güvencesiyle.",
-      3: "V-Giriş iki güçlü parçadan oluşur. Birincisi; sınırsız hesap kaydedebileceğiniz, A'dan Z'ye anında arama yapabileceğiniz ve Excel ile toplu aktarım yapabileceğiniz Mükellef Hesap Yöneticisi. İkincisi ise GİB ekranlarında sağ alttaki artı butonuyla açılan İşlem Paneli. Bu panel sayesinde mükellefin vergi kimlik numarası otomatik algılanır ve KDV iade listeleri dilediğiniz aylar seçilerek tek tıkla Excel formatında indirilir.",
-      4: "Sadece iade listeleri değil! Beyanname modülü ile KDV1'den Kurumlar Vergisi'ne kadar tüm beyannameleri dönem aralığı seçerek yan sekmelerde açabilir ve tek tıkla PDF olarak kaydedebilirsiniz. Ayrıca, KDV iade talebinizin hangi aşamada olduğunu menülerde kaybolmadan kartlar halinde takip edebilir, GİB KDVİRA kontrol raporlarına saniyeler içinde ulaşabilirsiniz.",
-      5: "V-Giriş'i kullanmak yalnızca beş basit adımdan ibarettir: Eklentiyi Chrome'a kurun, mükelleflerinizi Excel ile veya tek tek ekleyin, tek tıkla bilgileri doldurup giriş yapın. Ardından portalda sağ alttaki artı butonuna basarak paneli açın ve dilediğiniz beyanname ya da iade işlemini başlatın.",
-      6: "En önemli konu güvenlik ve gizliliktir. V-Giriş, sıfır sunucu mimarisiyle çalışır. Mükellef şifreleriniz hiçbir dış sunucuya gönderilmez, yalnızca kendi bilgisayarınızın yerel hafızasında saklanır. Yalnızca resmi GİB alan adlarında çalışır ve güvenlik kodunu kullanıcının girmesini sağlayarak etik kurallara tam uyum gösterir. Siz de GİB süreçlerinizde saatler kazandıran bu deneyime hemen başlayabilirsiniz. Ekrandaki veya alt paneldeki 'Chrome Web Mağazası\\'ndan İndir' butonuna tıklayarak V-Giriş eklentisini tarayıcınıza hemen ücretsiz olarak ekleyebilirsiniz. Sorularınız ve destek için ekrandaki e-posta adresinden bizimle iletişime geçebilirsiniz."
+      1: "Merhaba. Bugün sizlere, serbest muhasebeci mali müşavirlerin ve yeminli mali müşavirlerin Gelir İdaresi portallarındaki süreçlerini kolaylaştırmak için geliştirilen akıllı Chrome eklentisi V-Giriş'i tanıtacağız. Çoklu mükellef girişinden toplu beyanname indirmeye, KDV iade listelerinin otomatik alınmasına kadar pek çok rutin işlem artık tek bir merkezde.",
+      2: "Mali müşavirlerin ve YMM raportörlerinin günlük iş yükünü arttıran sorunları hepimiz biliyoruz: onlarca mükellefin şifresini tek tek girmek, Dijital ve İnternet Vergi Dairesi arasında sürekli geçiş yapmak ve yüzlerce listeyi manuel olarak indirmek. V-Giriş'le bu işlemler artık çok daha kolay! Hesaplarınızı güvenle saklayabilir, tek tıkla giriş yapabilir ve altı farklı beyanname türü ile 4 KDV iade listesini otomatik olarak bilgisayarınıza indirebilirsiniz. Üstelik tüm bunlar tamamen ücretsiz ve yerel depolama altyapısıyla.",
+      3: "V-Giriş 2 temel modülden oluşur. İlk modül: Mükellef Hesap Yöneticisi. Bu modül sayesinde sınırsız sayıda mükellef hesabı kaydedebilir, A'dan Z'ye anında arama yapabilir ve Excel üzerinden toplu hesap aktarımı gerçekleştirebilirsiniz. İkinci modül ise: İşlem Paneli. Gelir İdaresi ekranlarının sağ alt köşesindeki artı butonuyla açılan bu panel, mükellefin vergi kimlik numarasını otomatik algılar. Böylece istediğiniz ayları seçerek KDV iade listelerini tek tıkla Excel formatında indirebilirsiniz.",
+      4: "V-Giriş yalnızca KDV iade listelerini indirmekle kalmaz. Beyanname modülü sayesinde KDV1, Kurumlar Vergisi ve diğer desteklenen beyanname türlerini belirlediğiniz dönem aralığında görüntüleyebilirsiniz. Beyannameleri yan sekmelerde açabilir ve tek tıkla PDF olarak bilgisayarınıza kaydedebilirsiniz. Ayrıca KDV iade talebinizin hangi aşamada olduğunu kartlar üzerinden kolayca takip edebilir, KDV iade kontrol raporlarına saniyeler içerisinde ulaşabilirsiniz.",
+      5: "Daha az işlem, daha fazla zaman! V-Giriş'i kullanmak yalnızca 5 basit adımdan oluşur: İlk olarak eklentiyi Chrome tarayıcınıza kurun. İkinci olarak mükelleflerinizi Excel üzerinden veya tek tek sisteme ekleyin. Üçüncü adımda tek tıkla bilgilerinizi doldurarak giriş yapın. Dördüncü adımda portalın sağ alt köşesindeki artı butonuna tıklayarak işlem panelini açın. Son olarak istediğiniz beyanname veya KDV iade işlemini başlatın. İşte bu kadar!",
+      6: "V-Giriş'te en önemli önceliğimiz güvenlik ve gizlilik. Sıfır sunucu mimarisi ile çalışan eklentide, mükellef şifreleriniz herhangi bir dış sunucuya gönderilmez, bilgileriniz yalnızca kendi bilgisayarınızda saklanır. V-Giriş yalnızca resmi Gelir İdaresi Başkanlığı alan adlarında çalışır, güvenlik kodu ise kullanıcı tarafından girilir. Siz de GİB işlemlerinizde zaman kazandıran bu deneyimi hemen kullanmaya başlayabilirsiniz. Ekrandaki veya alt paneldeki 'Chrome Web Mağazası\\'ndan İndir' butonuna tıklayarak V-Giriş'i tarayıcınıza ücretsiz olarak ekleyebilirsiniz. Sorularınız ve destek için geliştirici ile iletişime geçebilirsiniz. V-Giriş'le işlerinizi kolaylaştırın, zamanınızı kendinize ayırın!"
     };
 
     let currentSlide = 1;
@@ -1506,12 +1668,12 @@
     // Integrated Audio Narration & Synchronization
     const audio = document.getElementById('presentationAudio');
     const slideTimestamps = [
-      { slide: 1, start: 0, end: 23.5 },
-      { slide: 2, start: 23.5, end: 57 },
-      { slide: 3, start: 57, end: 91 },
-      { slide: 4, start: 91, end: 119 },
-      { slide: 5, start: 119, end: 143 },
-      { slide: 6, start: 143, end: 189 }
+      { slide: 1, start: 0, end: 23.0 },
+      { slide: 2, start: 23.0, end: 57.8 },
+      { slide: 3, start: 57.8, end: 90.0 },
+      { slide: 4, start: 90.0, end: 120.4 },
+      { slide: 5, start: 120.4, end: 149.3 },
+      { slide: 6, start: 149.3, end: 193.2 }
     ];
 
     let isAudioPlaying = false;
@@ -1576,7 +1738,7 @@
 
     if (audio) {
       audio.addEventListener('loadedmetadata', () => {
-        const dur = audio.duration || 188.3;
+        const dur = audio.duration || 193.2;
         const cur = audio.currentTime || 0;
         const timeEl = document.getElementById('audioTime');
         if (timeEl) {
@@ -1594,7 +1756,7 @@
 
       audio.addEventListener('timeupdate', () => {
         const cur = audio.currentTime;
-        const dur = audio.duration || 188.3;
+        const dur = audio.duration || 193.2;
         const timeEl = document.getElementById('audioTime');
         if (timeEl) {
           timeEl.innerText = `${formatTime(cur)} / ${formatTime(dur)}`;
@@ -1650,7 +1812,7 @@
         audio.currentTime = 0;
         const timeEl = document.getElementById('audioTime');
         if (timeEl) {
-          timeEl.innerText = `0:00 / ${formatTime(audio.duration || 188.3)}`;
+          timeEl.innerText = `0:00 / ${formatTime(audio.duration || 193.2)}`;
         }
         showToast("✨ Seslendirme tamamlandı.");
       });
@@ -1718,39 +1880,40 @@
         return;
       }
 
-      // Slayt 5 Seslendirme Zaman Damgaları:
-      // 119.0 - 122.8: "V-Giriş'i kullanmak yalnızca beş basit adımdan ibarettir:" (Giriş)
-      // 122.8 - 126.2: "Eklentiyi Chrome'a kurun," (1. Adım)
-      // 126.2 - 130.0: "mükelleflerinizi Excel ile veya tek tek ekleyin," (2. Adım)
-      // 130.0 - 134.0: "tek tıkla bilgileri doldurup giriş yapın." (3. Adım)
-      // 134.0 - 138.5: "Ardından portalda sağ alttaki artı butonuna basarak paneli açın" (4. Adım)
-      // 138.5 - 143.0: "ve dilediğiniz beyanname ya da iade işlemini başlatın." (5. Adım)
+      // Slayt 5 Seslendirme Zaman Damgaları (Yeni Seslendirme Analizi):
+      // 120.4 - 125.8: "Daha az işlem, daha fazla zaman! V-Giriş'i kullanmak yalnızca 5 basit adımdan oluşur:" (Giriş)
+      // 125.8 - 128.8: "İlk olarak: eklentiyi Chrome tarayıcınıza kurun." (1. Adım)
+      // 128.8 - 133.6: "İkinci olarak: mükelleflerinizi Excel üzerinden veya tek tek sisteme ekleyin." (2. Adım)
+      // 133.6 - 137.2: "Üçüncü adımda: tek tıkla bilgilerinizi doldurarak giriş yapın." (3. Adım)
+      // 137.2 - 142.6: "Dördüncü adımda: portalın sağ alt köşesindeki artı butonuna tıklayarak işlem panelini açın." (4. Adım)
+      // 142.6 - 149.3: "Son olarak: istediğiniz beyanname veya KDV iade işlemini başlatın. İşte bu kadar!" (5. Adım)
 
       let activeIndex = 0;
       let progress = 0;
 
-      if (cur < 122.8) {
+      if (cur < 125.8) {
         activeIndex = 0;
         progress = 0;
-      } else if (cur < 126.2) {
+      } else if (cur < 128.8) {
         activeIndex = 1;
-        progress = 0.05;
-      } else if (cur < 130.0) {
+        const sub = Math.min(Math.max((cur - 125.8) / 0.8, 0), 1);
+        progress = sub * 0.20;
+      } else if (cur < 133.6) {
         activeIndex = 2;
-        const sub = Math.min(Math.max((cur - 126.2) / 1.0, 0), 1);
-        progress = 0.05 + sub * 0.20;
-      } else if (cur < 134.0) {
+        const sub = Math.min(Math.max((cur - 128.8) / 0.8, 0), 1);
+        progress = 0.20 + sub * 0.20;
+      } else if (cur < 137.2) {
         activeIndex = 3;
-        const sub = Math.min(Math.max((cur - 130.0) / 1.0, 0), 1);
-        progress = 0.25 + sub * 0.25;
-      } else if (cur < 138.5) {
+        const sub = Math.min(Math.max((cur - 133.6) / 0.8, 0), 1);
+        progress = 0.40 + sub * 0.20;
+      } else if (cur < 142.6) {
         activeIndex = 4;
-        const sub = Math.min(Math.max((cur - 134.0) / 1.0, 0), 1);
-        progress = 0.50 + sub * 0.25;
+        const sub = Math.min(Math.max((cur - 137.2) / 0.8, 0), 1);
+        progress = 0.60 + sub * 0.20;
       } else {
         activeIndex = 5;
-        const sub = Math.min(Math.max((cur - 138.5) / 1.0, 0), 1);
-        progress = 0.75 + sub * 0.25;
+        const sub = Math.min(Math.max((cur - 142.6) / 0.8, 0), 1);
+        progress = 0.80 + sub * 0.20;
       }
 
       wrapper.style.setProperty('--beam-scale', progress);
@@ -2052,6 +2215,30 @@
         toggleScriptDrawer();
       }
     });
+
+    // Touch Swipe Navigation for Mobile Phones
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches.length === 1) {
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        const diffY = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(diffX) > 42 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+          if (diffX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+    }, { passive: true });
 
     // Auto-play audio on site load (with Browser Autoplay Policy Fallback)
     function startAudioAutomatically() {
