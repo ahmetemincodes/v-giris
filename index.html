@@ -1414,6 +1414,35 @@
         margin-left: 4px;
       }
     }
+
+    /* Google Chrome Web Store Export Mode (1280x800 Screenshot Optimized) */
+    body.store-export-mode .controls-bar,
+    body.store-export-mode .voiceover-drawer,
+    body.store-export-mode #confettiCanvas,
+    body.store-export-mode .toast,
+    body.store-export-mode .progress-bar-container {
+      display: none !important;
+    }
+    body.store-export-mode {
+      overflow: hidden !important;
+      background: radial-gradient(circle at 50% 25%, #181c3a 0%, #0b0f19 80%) !important;
+    }
+    body.store-export-mode .slide {
+      opacity: 0;
+      transform: none !important;
+      transition: none !important;
+      max-height: none !important;
+      height: 100vh !important;
+      width: 100% !important;
+      max-width: 1200px !important;
+      padding: 2.2rem 2.5rem !important;
+      justify-content: center !important;
+      margin: auto !important;
+    }
+    body.store-export-mode .slide.active {
+      opacity: 1 !important;
+      display: flex !important;
+    }
   </style>
 </head>
 <body>
@@ -1450,7 +1479,7 @@
         </div>
 
         <div class="badge">
-          <span class="badge-dot"></span> Sürüm 1.0.4 • Akıllı Chrome Eklentisi
+          <span class="badge-dot"></span> Sürüm 1.0.5 • Akıllı Chrome Eklentisi
         </div>
         <h1 class="slide-title">V-Giriş</h1>
         <p class="slide-subtitle" style="text-align: center; margin-bottom: 1.5rem;">
@@ -1842,7 +1871,16 @@
       6: "V-Giriş'te en önemli önceliğimiz güvenlik ve gizlilik. Sıfır sunucu mimarisi ile çalışan eklentide, mükellef şifreleriniz herhangi bir dış sunucuya gönderilmez, bilgileriniz yalnızca kendi bilgisayarınızda saklanır. V-Giriş yalnızca resmi Gelir İdaresi Başkanlığı alan adlarında çalışır, güvenlik kodu ise kullanıcı tarafından girilir. Siz de GİB işlemlerinizde zaman kazandıran bu deneyimi hemen kullanmaya başlayabilirsiniz. Ekrandaki veya alt paneldeki 'Chrome Web Mağazası\\'ndan İndir' butonuna tıklayarak V-Giriş'i tarayıcınıza ücretsiz olarak ekleyebilirsiniz. Sorularınız ve destek için geliştirici ile iletişime geçebilirsiniz. V-Giriş'le işlerinizi kolaylaştırın, zamanınızı kendinize ayırın!"
     };
 
-    let currentSlide = 1;
+    // URL Param Controller (Direct Slide Link & Chrome Web Store Export Mode)
+    const urlParams = new URLSearchParams(window.location.search);
+    const isStoreExport = urlParams.get('store') === '1' || urlParams.get('export') === '1';
+    const initSlide = parseInt(urlParams.get('slide'));
+    let currentSlide = (initSlide >= 1 && initSlide <= 6) ? initSlide : 1;
+
+    if (isStoreExport) {
+      document.body.classList.add('store-export-mode');
+    }
+
     const totalSlides = 6;
     let isScriptOpen = false;
     let autoplayInterval = null;
@@ -2037,15 +2075,31 @@
       document.getElementById('nextBtn').innerText = currentSlide === totalSlides ? "Başa Dön ↺" : "Sonraki ›";
 
       // Trigger Slide-Specific Animations
-      if (currentSlide === 2) {
-        animateCounters();
-      } else if (currentSlide === 5) {
-        syncSlide5Stepper(audio ? audio.currentTime : 0);
-      } else if (currentSlide === 6) {
-        hasTriggeredStoreBurst = false;
-        hasTriggeredEmailBurst = false;
-        triggerConfetti();
-        syncSlide6Effects(audio ? audio.currentTime : 0);
+      if (isStoreExport) {
+        if (currentSlide === 2) {
+          document.querySelectorAll('.counter-number').forEach(el => {
+            el.innerText = el.getAttribute('data-target');
+          });
+        } else if (currentSlide === 5) {
+          const stepItems = document.querySelectorAll('.steps-wrapper .step-item');
+          const wrapper = document.querySelector('.steps-wrapper');
+          if (wrapper) wrapper.style.setProperty('--beam-scale', 1);
+          stepItems.forEach(item => {
+            item.classList.add('charged');
+            item.classList.remove('pulse-pop');
+          });
+        }
+      } else {
+        if (currentSlide === 2) {
+          animateCounters();
+        } else if (currentSlide === 5) {
+          syncSlide5Stepper(audio ? audio.currentTime : 0);
+        } else if (currentSlide === 6) {
+          hasTriggeredStoreBurst = false;
+          hasTriggeredEmailBurst = false;
+          triggerConfetti();
+          syncSlide6Effects(audio ? audio.currentTime : 0);
+        }
       }
 
       // Slayt 6'dan çıkıldığında patlama sınıflarını temizle (tekrar gelindiğinde baştan oynayabilsin)
@@ -2659,7 +2713,9 @@
 
     // Initialize
     updateSlide();
-    startAudioAutomatically();
+    if (!isStoreExport) {
+      startAudioAutomatically();
+    }
   </script>
 </body>
 </html>
